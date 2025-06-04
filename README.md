@@ -1,38 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📌 InvoiceGo
 
-## Getting Started
+**InvoiceGo** est une petite application web conçue pour aider les freelances et petites entreprises à créer, gérer et exporter leurs factures facilement.
 
-First, run the development server:
+## 🚀 Objectif
+Créer une Web App simple qui permet de :
+- Générer des factures via un formulaire
+- Les exporter en PDF
+- Les stocker dans une base de données
+- Afficher la liste des factures enregistrées
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Stack Technique
+- **Frontend** : Next.js 15 + Tailwind CSS
+- **Backend** : API Routes de Next.js
+- **Base de Données** : Supabase (PostgreSQL)
+- **PDF** : `react-pdf` pour générer les fichiers PDF
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 MVP (Version Minimale)
+- [x] Formulaire de création de facture
+- [x] Génération PDF de la facture
+- [x] Stockage dans Supabase
+- [x] Affichage de la liste des factures
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔧 Fonctionnalités à venir
+- Envoi des factures par email
+- Suivi du statut de paiement (payé, en attente, en retard)
+- Gestion des clients (contacts réutilisables)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗂️ Modèle de Données (Supabase - Table `invoices`)
+| Champ        | Type       | Description                    |
+|--------------|------------|--------------------------------|
+| `id`         | UUID       | Identifiant unique             |
+| `client_name`| TEXT       | Nom du client                  |
+| `amount`     | FLOAT      | Montant de la facture          |
+| `description`| TEXT       | Détails de la facture          |
+| `due_date`   | TIMESTAMP  | Date d'échéance                |
+| `status`     | TEXT       | Statut (payé, en attente...)   |
+| `pdf_url`    | TEXT       | Lien vers le PDF (optionnel)   |
+| `created_at` | TIMESTAMP  | Date de création               |
 
-## Learn More
+## 📍 Prochaine étape
+Configurer Supabase et développer le formulaire de création de facture.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# invoice-go
-# invoice-go
+> _Développé pour s’exercer sur un vrai projet fullstack pratique et réutilisable._
