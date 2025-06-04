@@ -38,9 +38,5 @@ Créer une Web App simple qui permet de :
 | `pdf_url`    | TEXT       | Lien vers le PDF (optionnel)   |
 | `created_at` | TIMESTAMP  | Date de création               |
 
-## 📍 Prochaine étape
-Configurer Supabase et développer le formulaire de création de facture.
-
----
 
 > _Développé pour s’exercer sur un vrai projet fullstack pratique et réutilisable._
