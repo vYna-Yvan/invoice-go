@@ -5,8 +5,7 @@ import { createClient } from "@/utils/supabase/server"
 
 export default async function Page() {
   const cookieStore = cookies()
-  const supabase = await createClient(cookieStore)
-
+  const supabase = await createClient()
   const { data: invoices, error } = await supabase.from("invoices").select("*")
 
   if (error) {
@@ -28,9 +27,10 @@ export default async function Page() {
           <tr>
             <th className="px-4 py-2 bg-gray-200 text-left font-bold border">Client Name</th>
             <th className="px-4 py-2 bg-gray-200 text-left font-bold border">Amount (€)</th>
-            <th className="px-4 py-2 bg-gray-200 text-left font-bold border">Date</th>
+            <th className="px-4 py-2 bg-gray-200 text-left font-bold border">Due Date</th>
             <th className="px-4 py-2 bg-gray-200 text-left font-bold border">Status</th>
             <th className="px-4 py-2 bg-gray-200 text-left font-bold border">Description</th>
+            <th className="px-4 py-2 bg-gray-200 text-left font-bold border">Created at</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +45,11 @@ export default async function Page() {
                 })}</td>
               <td className="px-4 py-2 text-left">{invoice.status}</td>
               <td className="px-4 py-2 text-left">{invoice.description}</td>
+              <td className="px-4 py-2 text-left">{new Date(invoice.created_at).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long', // Use 'long' for full month name (January)
+                  day: 'numeric',
+                })}</td>
             </tr>
           ))}
         </tbody>
