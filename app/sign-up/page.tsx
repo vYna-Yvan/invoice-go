@@ -1,11 +1,19 @@
 import Link from 'next/link'
-import { login} from './actions'
+import {  signup } from './actions'
 
 export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <form className="bg-white shadow-md rounded px-8 py-8 w-full max-w-sm flex flex-col gap-4">
-        <h1 className="text-2xl font-bold text-center mb-4 text-blue-600">Connexion</h1>
+        <h1 className="text-2xl font-bold text-center mb-4 text-blue-600">Création d'un profil</h1>
+        <label htmlFor="userName" className="text-gray-700">UserName</label>
+        <input
+          id="userName"
+          name="userName"
+          type="userName"
+          required
+          className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
         <label htmlFor="email" className="text-gray-700">Email</label>
         <input
           id="email"
@@ -22,17 +30,17 @@ export default function LoginPage() {
           required
           className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+       
         <button
-          formAction={login}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded transition"
+          formAction={signup}
+          className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 rounded transition"
         >
-          Se connecter
+          S'inscrire
         </button>
-      <div className="text-center mt-4">
-        <Link href="./sign-up" className="text-blue-600 hover:underline">
-          Nouveau utilisateur ? Créez votre compte
+        <Link className="text-center text-blue-600 hover:underline mt-4" href="./login">
+          Déjà un compte ?
         </Link>
-      </div>
+
       </form>
     </div>
   )

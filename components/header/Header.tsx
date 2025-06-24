@@ -17,6 +17,9 @@ export default function Header() {
           <Link href="/invoices/new" className="text-gray-700 hover:text-blue-600 transition">
             Nouvelle facture
           </Link>
+          <Link href="/login" className="text-gray-700 hover:text-blue-600 transition">
+            Login/logout
+          </Link>
         </div>
       </nav>
     </header>
